@@ -1,4 +1,4 @@
-  import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { BotanicalDivider, CornerLeaves, TinyLeaf } from "../components/BotanicalAccent";
 
 const fadeUp = {
@@ -18,8 +18,6 @@ const labelClass = "block font-body text-sm font-semibold text-forest mb-1.5";
 export default function Contact() {
   return (
     <div className="overflow-x-hidden">
-
-      {/* ── Page Header ── */}
       <section className="relative bg-forest overflow-hidden py-20 md:py-24">
         <CornerLeaves color="#7A9E8E" className="absolute top-0 left-0 opacity-20 w-40 h-40" />
         <CornerLeaves color="#C4714A" flip className="absolute bottom-0 right-0 opacity-15 w-36 h-36 rotate-180" />
@@ -34,18 +32,20 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ── Same-day banner ── */}
       <div className="bg-terra py-3 px-4 text-center">
         <p className="font-body text-cream font-semibold text-sm">
           ⚡ Need someone today?{" "}
-          <a href="tel:+16155550000" className="underline hover:no-underline font-bold">
-            Call or text (615) 555-0000
+          <a href="tel:+15618884808" className="underline hover:no-underline font-bold">
+            Call (561) 888-4808
+          </a>{" "}
+          or{" "}
+          <a href="sms:+15618884808" className="underline hover:no-underline font-bold">
+            send a text
           </a>{" "}
           for the fastest response.
         </p>
       </div>
 
-      {/* ── Main Content ── */}
       <section className="py-20 md:py-28 bg-cream relative overflow-hidden">
         <CornerLeaves color="#7A9E8E" className="absolute bottom-0 left-0 opacity-[0.05] w-56 h-56" />
         <CornerLeaves color="#7A9E8E" flip className="absolute top-0 right-0 opacity-[0.05] w-56 h-56" />
@@ -54,8 +54,6 @@ export default function Contact() {
           <BotanicalDivider color="#7A9E8E" className="max-w-xs mx-auto mb-14 opacity-60" />
 
           <div className="grid lg:grid-cols-3 gap-10">
-
-            {/* ── Sidebar: Contact Info ── */}
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -65,23 +63,28 @@ export default function Contact() {
             >
               <h2 className="font-display text-xl font-bold text-forest mb-5">Contact Info</h2>
 
-              {/* Phone */}
-              <a
-                href="tel:+16155550000"
-                className="flex items-center gap-3.5 p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm hover:border-sage/40 hover:shadow-warm-lg transition-all group"
-              >
-                <div className="w-11 h-11 rounded-xl bg-forest flex items-center justify-center shrink-0 group-hover:bg-sage-mid transition-colors">
-                  <svg className="w-5 h-5 text-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+              <div className="p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-11 h-11 rounded-xl bg-forest flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5 text-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-body text-xs text-stone/60 font-semibold uppercase tracking-wider">Phone / Text</p>
+                    <div className="font-body font-bold">
+                      <a href="tel:+15618884808" className="text-forest hover:text-terra transition-colors">
+                        (561) 888-4808
+                      </a>
+                      <span className="mx-2 text-stone/40">·</span>
+                      <a href="sms:+15618884808" className="text-forest hover:text-terra transition-colors">
+                        Text
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-body text-xs text-stone/60 font-semibold uppercase tracking-wider">Phone / Text</p>
-                  <p className="font-body text-forest font-bold group-hover:text-terra transition-colors">(615) 555-0000</p>
-                </div>
-              </a>
+              </div>
 
-              {/* Email */}
               <a
                 href="mailto:brigitte@originalmobilenotary.com"
                 className="flex items-center gap-3.5 p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm hover:border-sage/40 hover:shadow-warm-lg transition-all group"
@@ -97,7 +100,6 @@ export default function Contact() {
                 </div>
               </a>
 
-              {/* Availability */}
               <div className="flex items-center gap-3.5 p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm">
                 <div className="w-11 h-11 rounded-xl bg-forest flex items-center justify-center shrink-0">
                   <svg className="w-5 h-5 text-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,7 +112,6 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Calendly placeholder */}
               <div className="bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <TinyLeaf color="#7A9E8E" className="w-3 h-4" />
@@ -128,7 +129,6 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* ── Contact Form ── */}
             <motion.div
               custom={1}
               initial="hidden"
