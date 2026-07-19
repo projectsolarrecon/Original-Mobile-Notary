@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Services", path: "/services" },
   { label: "Service Area", path: "/service-area" },
   { label: "Pricing", path: "/pricing" },
+  { label: "Why Us", path: "/why-choose-us" },
   { label: "About", path: "/about" },
   { label: "FAQ", path: "/faq" },
 ];
@@ -54,7 +55,7 @@ export default function Header() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative px-3.5 py-2 text-sm font-semibold font-body transition-colors rounded-lg ${
+                  className={`relative px-3 py-2 text-sm font-semibold font-body transition-colors rounded-lg ${
                     active
                       ? "text-forest"
                       : "text-stone hover:text-forest hover:bg-sage-pale"
@@ -64,7 +65,7 @@ export default function Header() {
                   {active && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute bottom-1 left-3.5 right-3.5 h-0.5 bg-terra rounded-full"
+                      className="absolute bottom-1 left-3 right-3 h-0.5 bg-terra rounded-full"
                     />
                   )}
                 </Link>
