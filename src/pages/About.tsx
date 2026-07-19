@@ -83,7 +83,7 @@ export default function About() {
 
                 <div className="relative rounded-[2rem] overflow-hidden border-2 border-sage-mid/30 shadow-warm-lg bg-sage-pale aspect-[3/4]">
                   <img
-                    src="/brigitte-about.jpg"
+                    src="/brigitte-about-web.jpg"
                     alt="Brigitte of Original Mobile Notary enjoying coffee in Nashville"
                     className="h-full w-full object-cover object-center"
                     loading="eager"
