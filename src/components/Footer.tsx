@@ -1,4 +1,4 @@
-  import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BotanicalDivider, TinyLeaf } from "./BotanicalAccent";
 
 export default function Footer() {
@@ -73,15 +73,20 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="tel:+16155550000"
-                  className="font-body text-sage-light hover:text-cream transition-colors flex items-start gap-2.5"
-                >
+                <div className="flex items-start gap-2.5">
                   <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  (615) 555-0000
-                </a>
+                  <div className="font-body text-sage-light">
+                    <a href="tel:+15618884808" className="hover:text-cream transition-colors">
+                      (561) 888-4808
+                    </a>
+                    <span className="mx-2 text-sage-mid/60">·</span>
+                    <a href="sms:+15618884808" className="hover:text-cream transition-colors">
+                      Text
+                    </a>
+                  </div>
+                </div>
               </li>
               <li>
                 <a
