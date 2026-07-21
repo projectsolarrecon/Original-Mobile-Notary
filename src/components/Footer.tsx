@@ -69,11 +69,11 @@ export default function Footer() {
                 </div>
               </li>
               <li>
-                <a href="mailto:brigitte@originalmobilenotary.com" className="font-body text-sage-light hover:text-cream transition-colors flex items-start gap-2.5">
+                <a href="mailto:hello@originalnotary.com" className="font-body text-sage-light hover:text-cream transition-colors flex items-start gap-2.5">
                   <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  brigitte@originalmobilenotary.com
+                  hello@originalnotary.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
