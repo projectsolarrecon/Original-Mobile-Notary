@@ -1,0 +1,116 @@
+name: Run homepage trust-section update
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-homepage:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: content/replace-placeholder-testimonials
+
+      - name: Replace placeholder testimonials
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          path = Path("src/pages/Home.tsx")
+          text = path.read_text()
+
+          data = '''const servicePromises = [
+            {
+              icon: "💬",
+              title: "Clear Communication",
+              text: "You will know what to bring, where to meet, and what the appointment will cost before it begins.",
+            },
+            {
+              icon: "🤝",
+              title: "Patient, Personal Service",
+              text: "Every appointment is handled with care, especially when working with seniors, families, hospital patients, and people navigating important documents.",
+            },
+            {
+              icon: "📍",
+              title: "Reliable and Convenient",
+              text: "Brigitte works to accommodate busy schedules, arrives prepared, and brings professional notary service directly to the customer.",
+            },
+          ];'''
+
+          section = '''      {/* ═══════════════════════════════════════
+          SERVICE PROMISES
+      ═══════════════════════════════════════ */}
+      <section className="py-20 md:py-28 bg-forest relative overflow-hidden">
+        <CornerLeaves color="#7A9E8E" className="absolute top-0 left-0 opacity-10 w-48 h-48" />
+        <CornerLeaves color="#7A9E8E" flip className="absolute bottom-0 right-0 opacity-10 w-48 h-48 rotate-180" />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-4">
+            <span className="font-body text-terra-light font-bold text-xs uppercase tracking-[0.2em]">What You Can Expect</span>
+          </motion.div>
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-display text-3xl md:text-4xl font-bold text-cream text-center mb-3">
+            A Service Experience Built Around You
+          </motion.h2>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-body text-sage-light text-center max-w-3xl mx-auto mb-4 leading-relaxed">
+            Original Mobile Notary is a new business, but attentive customer service is not new to Brigitte. She brings years of experience serving customers in their homes and businesses with patience, reliability, honesty, clear communication, and personalized service.
+          </motion.p>
+
+          <BotanicalDivider color="#7A9E8E" className="max-w-xs mx-auto mb-14 opacity-40" />
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {servicePromises.map((promise, i) => (
+              <motion.div
+                key={promise.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="bg-cream/8 backdrop-blur rounded-3xl p-7 border border-sage-mid/20 hover:border-sage-mid/40 hover:-translate-y-1 transition-all"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-terra/20 border border-terra/30 flex items-center justify-center text-2xl mb-5">
+                  {promise.icon}
+                </div>
+                <h3 className="font-display text-cream font-semibold text-xl mb-3">{promise.title}</h3>
+                <p className="font-body text-sage-light text-sm leading-relaxed">{promise.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>'''
+
+          text, data_count = re.subn(
+              r'const testimonials = \[.*?\n\];',
+              data,
+              text,
+              count=1,
+              flags=re.S,
+          )
+          text, section_count = re.subn(
+              r'      /\*\{? ═+\n          TESTIMONIALS.*?      </section>(?=\n\n      /\*\{? ═+\n          COVERAGE AREA PREVIEW)',
+              section,
+              text,
+              count=1,
+              flags=re.S,
+          )
+
+          if data_count != 1 or section_count != 1:
+              raise SystemExit(f"Replacement failed: data={data_count}, section={section_count}")
+
+          path.write_text(text)
+
+      - name: Commit homepage update
+        run: |
+          rm -f .github/workflows/apply-testimonial-replacement.yml
+          rm -f .github/workflows/run-testimonial-replacement-on-pr.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/Home.tsx .github/workflows
+          git commit -m "Replace placeholder testimonials with service promises"
+          git push origin HEAD:content/replace-placeholder-testimonials
