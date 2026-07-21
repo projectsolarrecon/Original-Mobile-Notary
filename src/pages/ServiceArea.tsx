@@ -11,11 +11,14 @@ const fadeUp = {
   }),
 };
 
-const fadeIn = {
-  hidden: { opacity: 0 },
+const cardReveal = {
+  hidden: { opacity: 0, y: 34, rotateX: -12, scale: 0.96 },
   visible: (i = 0) => ({
     opacity: 1,
-    transition: { duration: 0.4, delay: i * 0.04 },
+    y: 0,
+    rotateX: 0,
+    scale: 1,
+    transition: { duration: 0.58, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -112,15 +115,16 @@ export default function ServiceArea() {
                 Browse by the part of town or nearby community that is most familiar to you.
               </p>
 
-              <div className="space-y-5">
+              <div className="space-y-5 [perspective:1000px]">
                 {serviceGroups.map((group, groupIndex) => (
                   <motion.div
                     key={group.title}
                     custom={groupIndex}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={fadeIn}
+                    viewport={{ once: true, amount: 0.22 }}
+                    variants={cardReveal}
+                    style={{ transformOrigin: "top center", transformStyle: "preserve-3d" }}
                     className="bg-parchment rounded-3xl p-5 border border-stone-pale/50 shadow-warm"
                   >
                     <h3 className="font-display text-forest font-semibold mb-3">{group.title}</h3>
