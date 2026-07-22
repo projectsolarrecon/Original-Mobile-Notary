@@ -24,7 +24,10 @@ export default function Footer() {
               </div>
             </div>
             <p className="font-body text-sage-light text-sm leading-relaxed">
-              Friendly, professional mobile notary service throughout Nashville and surrounding Middle Tennessee communities. We come to you — wherever the appointment is most convenient.
+              Friendly, professional mobile notary service throughout Nashville and surrounding Middle Tennessee communities. Appointments are scheduled in advance at an agreed location.
+            </p>
+            <p className="font-body text-sage text-xs mt-3 leading-relaxed">
+              Generally available 8:00 a.m.–8:00 p.m. Same-day and after-hours service may sometimes be available by request.
             </p>
             <Link to="/service-area" className="inline-flex items-center gap-1.5 mt-4 font-body text-sage text-xs italic hover:text-cream transition-colors">
               <TinyLeaf color="#7A9E8E" className="w-3 h-4" />
@@ -58,9 +61,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <div className="flex items-start gap-2.5">
-                  <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                  <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                   <div className="font-body text-sage-light">
                     <a href="tel:+15618884808" className="hover:text-cream transition-colors">(561) 888-4808</a>
                     <span className="mx-2 text-sage-mid/60">·</span>
@@ -70,28 +71,21 @@ export default function Footer() {
               </li>
               <li>
                 <a href="mailto:hello@originalnotary.com" className="font-body text-sage-light hover:text-cream transition-colors flex items-start gap-2.5">
-                  <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   hello@originalnotary.com
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+                <svg className="w-4 h-4 text-terra-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 <span className="font-body text-sage-light">Nashville & Middle Tennessee</span>
               </li>
             </ul>
 
             <div className="mt-5 pt-4 border-t border-sage-mid/30">
-              <p className="font-body text-sage text-xs mb-2 uppercase tracking-wider">Accepts</p>
+              <p className="font-body text-sage text-xs mb-2 uppercase tracking-wider">Payment Options</p>
               <div className="flex flex-wrap gap-2">
-                {["Cash", "Zelle", "Venmo", "Card"].map((method) => (
-                  <span key={method} className="px-2.5 py-1 bg-sage-mid/20 border border-sage-mid/30 rounded-full text-xs font-body text-sage-light">
-                    {method}
-                  </span>
+                {["Cash", "Cards", "Cash App", "Venmo", "Zelle", "Apple Pay"].map((method) => (
+                  <span key={method} className="px-2.5 py-1 bg-sage-mid/20 border border-sage-mid/30 rounded-full text-xs font-body text-sage-light">{method}</span>
                 ))}
               </div>
             </div>
@@ -100,10 +94,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-sage-mid/20 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="font-body text-sage text-xs">© {new Date().getFullYear()} Original Mobile Notary of Nashville. All rights reserved.</p>
-          <p className="font-body text-sage text-xs flex items-center gap-1.5">
-            <TinyLeaf color="#7A9E8E" className="w-2.5 h-3" />
-            Tennessee Commissioned Notary Public
-          </p>
+          <p className="font-body text-sage text-xs flex items-center gap-1.5"><TinyLeaf color="#7A9E8E" className="w-2.5 h-3" />Tennessee Commissioned Notary Public</p>
         </div>
       </div>
     </footer>
