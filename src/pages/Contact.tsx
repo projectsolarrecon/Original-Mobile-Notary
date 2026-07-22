@@ -35,13 +35,9 @@ export default function Contact() {
       <div className="bg-terra py-3 px-4 text-center">
         <p className="font-body text-cream font-semibold text-sm">
           ⚡ Need someone today?{" "}
-          <a href="tel:+15618884808" className="underline hover:no-underline font-bold">
-            Call (561) 888-4808
-          </a>{" "}
+          <a href="tel:+15618884808" className="underline hover:no-underline font-bold">Call (561) 888-4808</a>{" "}
           or{" "}
-          <a href="sms:+15618884808" className="underline hover:no-underline font-bold">
-            send a text
-          </a>{" "}
+          <a href="sms:+15618884808" className="underline hover:no-underline font-bold">send a text</a>{" "}
           for the fastest response.
         </p>
       </div>
@@ -54,13 +50,7 @@ export default function Contact() {
           <BotanicalDivider color="#7A9E8E" className="max-w-xs mx-auto mb-14 opacity-60" />
 
           <div className="grid lg:grid-cols-3 gap-10">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="lg:col-span-1 space-y-5"
-            >
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-1 space-y-5">
               <h2 className="font-display text-xl font-bold text-forest mb-5">Contact Info</h2>
 
               <div className="p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm">
@@ -73,22 +63,15 @@ export default function Contact() {
                   <div>
                     <p className="font-body text-xs text-stone/60 font-semibold uppercase tracking-wider">Phone / Text</p>
                     <div className="font-body font-bold">
-                      <a href="tel:+15618884808" className="text-forest hover:text-terra transition-colors">
-                        (561) 888-4808
-                      </a>
+                      <a href="tel:+15618884808" className="text-forest hover:text-terra transition-colors">(561) 888-4808</a>
                       <span className="mx-2 text-stone/40">·</span>
-                      <a href="sms:+15618884808" className="text-forest hover:text-terra transition-colors">
-                        Text
-                      </a>
+                      <a href="sms:+15618884808" className="text-forest hover:text-terra transition-colors">Text</a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <a
-                href="mailto:brigitte@originalmobilenotary.com"
-                className="flex items-center gap-3.5 p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm hover:border-sage/40 hover:shadow-warm-lg transition-all group"
-              >
+              <a href="mailto:hello@originalnotary.com" className="flex items-center gap-3.5 p-4 bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm hover:border-sage/40 hover:shadow-warm-lg transition-all group">
                 <div className="w-11 h-11 rounded-xl bg-forest flex items-center justify-center shrink-0 group-hover:bg-sage-mid transition-colors">
                   <svg className="w-5 h-5 text-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -96,7 +79,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-body text-xs text-stone/60 font-semibold uppercase tracking-wider">Email</p>
-                  <p className="font-body text-forest font-bold group-hover:text-terra transition-colors text-sm">brigitte@originalmobilenotary.com</p>
+                  <p className="font-body text-forest font-bold group-hover:text-terra transition-colors text-sm">hello@originalnotary.com</p>
                 </div>
               </a>
 
@@ -108,70 +91,55 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="font-body text-xs text-stone/60 font-semibold uppercase tracking-wider">Availability</p>
-                  <p className="font-body text-forest font-bold text-sm">[Days/Hours] · Evenings & Weekends</p>
-                </div>
-              </div>
-
-              <div className="bg-parchment rounded-2xl border border-stone-pale/50 shadow-warm p-5">
-                <div className="flex items-center gap-2 mb-2">
-                  <TinyLeaf color="#7A9E8E" className="w-3 h-4" />
-                  <h3 className="font-display text-forest font-semibold text-sm">Online Scheduling</h3>
-                </div>
-                <p className="font-body text-stone text-xs mb-4 leading-relaxed">
-                  Prefer to book online? Use the scheduling tool below to pick a time that works for you.
-                </p>
-                <div className="bg-sage-pale rounded-xl border border-dashed border-sage/30 h-28 flex items-center justify-center">
-                  <div className="text-center">
-                    <p className="font-body text-sage-mid text-sm font-semibold">Calendly Embed</p>
-                    <p className="font-body text-stone/40 text-xs mt-1">Scheduling widget goes here</p>
-                  </div>
+                  <p className="font-body text-forest font-bold text-sm">Evenings & Weekends Available</p>
                 </div>
               </div>
             </motion.div>
 
-            <motion.div
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="lg:col-span-2"
-            >
+            <motion.div custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-2">
               <div className="bg-parchment rounded-3xl shadow-warm border border-stone-pale/50 p-8">
                 <h2 className="font-display text-xl font-bold text-forest mb-2">Send Us a Message</h2>
                 <p className="font-body text-stone text-sm mb-7 leading-relaxed">
-                  Fill out the form below and we'll get back to you with a free quote — usually within the hour during business hours.
+                  Fill out the form below and your request will be sent to hello@originalnotary.com.
                 </p>
 
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+                <form
+                  name="notary-contact"
+                  method="POST"
+                  action="/contact?submitted=true"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  className="space-y-5"
+                >
+                  <input type="hidden" name="form-name" value="notary-contact" />
+                  <p className="hidden" aria-hidden="true">
+                    <label>Do not fill this out: <input name="bot-field" /></label>
+                  </p>
+
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className={labelClass}>Full Name *</label>
-                      <input type="text" placeholder="Jane Smith" className={inputClass} />
+                      <label htmlFor="full-name" className={labelClass}>Full Name *</label>
+                      <input id="full-name" name="full-name" type="text" placeholder="Jane Smith" className={inputClass} required />
                     </div>
                     <div>
-                      <label className={labelClass}>Phone Number *</label>
-                      <input type="tel" placeholder="(615) 000-0000" className={inputClass} />
+                      <label htmlFor="phone" className={labelClass}>Phone Number *</label>
+                      <input id="phone" name="phone" type="tel" placeholder="(615) 000-0000" className={inputClass} required />
                     </div>
                   </div>
 
                   <div>
-                    <label className={labelClass}>Email Address</label>
-                    <input type="email" placeholder="jane@example.com" className={inputClass} />
+                    <label htmlFor="email" className={labelClass}>Email Address</label>
+                    <input id="email" name="email" type="email" placeholder="jane@example.com" className={inputClass} />
                   </div>
 
                   <div>
-                    <label className={labelClass}>Location / Address *</label>
-                    <input
-                      type="text"
-                      placeholder="123 Main St, Nashville, TN 37201"
-                      className={inputClass}
-                    />
+                    <label htmlFor="location" className={labelClass}>Location / Address *</label>
+                    <input id="location" name="location" type="text" placeholder="123 Main St, Nashville, TN 37201" className={inputClass} required />
                   </div>
 
                   <div>
-                    <label className={labelClass}>Type of Document(s)</label>
-                    <select className={`${inputClass} cursor-pointer`}>
+                    <label htmlFor="document-type" className={labelClass}>Type of Document(s)</label>
+                    <select id="document-type" name="document-type" className={`${inputClass} cursor-pointer`}>
                       <option value="">Select a document type...</option>
                       <option>General Notarization</option>
                       <option>Power of Attorney</option>
@@ -185,33 +153,22 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className={labelClass}>Preferred Date & Time</label>
-                    <input
-                      type="text"
-                      placeholder="e.g., This Saturday afternoon, or ASAP"
-                      className={inputClass}
-                    />
+                    <label htmlFor="preferred-date-time" className={labelClass}>Preferred Date & Time</label>
+                    <input id="preferred-date-time" name="preferred-date-time" type="text" placeholder="e.g., This Saturday afternoon, or ASAP" className={inputClass} />
                   </div>
 
                   <div>
-                    <label className={labelClass}>Additional Details</label>
-                    <textarea
-                      rows={4}
-                      placeholder="Anything else we should know? (e.g., hospital visit, number of documents, special instructions)"
-                      className={`${inputClass} resize-none`}
-                    />
+                    <label htmlFor="details" className={labelClass}>Additional Details</label>
+                    <textarea id="details" name="details" rows={4} placeholder="Anything else we should know? (e.g., hospital visit, number of documents, special instructions)" className={`${inputClass} resize-none`} />
                   </div>
 
                   <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="w-full py-4 bg-terra text-cream font-bold font-body rounded-2xl hover:bg-[#b0623e] transition-all shadow-warm-lg text-base"
-                    >
+                    <button type="submit" className="w-full py-4 bg-terra text-cream font-bold font-body rounded-2xl hover:bg-[#b0623e] transition-all shadow-warm-lg text-base">
                       Send Message & Request a Quote
                     </button>
                     <p className="font-body text-stone/50 text-xs text-center mt-3 flex items-center justify-center gap-1.5">
                       <TinyLeaf color="#7A9E8E" className="w-2.5 h-3" />
-                      We typically respond within 1 hour during business hours. For urgent needs, please call or text directly.
+                      For urgent needs, please call or text directly.
                     </p>
                   </div>
                 </form>

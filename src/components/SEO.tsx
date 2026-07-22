@@ -70,7 +70,7 @@ const localBusinessSchema = {
   url: `${SITE_URL}/`,
   image: SOCIAL_IMAGE,
   telephone: "+1-561-888-4808",
-  email: "brigitte@originalmobilenotary.com",
+  email: "hello@originalnotary.com",
   priceRange: "$$",
   description:
     "Professional mobile notary service throughout Nashville and surrounding Middle Tennessee communities.",
