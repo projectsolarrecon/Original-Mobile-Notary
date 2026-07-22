@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { faqs } from "../data/faqs";
 
 const SITE_URL = "https://originalnotary.com";
 const SOCIAL_IMAGE = `${SITE_URL}/professional_mobile_notary_services_banner_refreshed.png`;
@@ -15,7 +16,7 @@ const metadataByPath: Record<string, PageMetadata> = {
   "/": {
     title: "Mobile Notary Nashville, TN | Original Mobile Notary",
     description:
-      "Professional mobile notary service throughout Nashville and surrounding Middle Tennessee communities. Brigitte travels to homes, offices, hospitals, care facilities, and other convenient locations.",
+      "Professional mobile notary service throughout Nashville and surrounding Middle Tennessee communities. Appointments generally available 8 a.m.–8 p.m., with same-day requests sometimes available.",
     path: "/",
   },
   "/services": {
@@ -33,13 +34,13 @@ const metadataByPath: Record<string, PageMetadata> = {
   "/pricing": {
     title: "Mobile Notary Pricing in Nashville, TN",
     description:
-      "Review clear mobile notary pricing for Nashville and surrounding Middle Tennessee communities. Travel fees and the full appointment price are confirmed before booking.",
+      "Request a clear mobile notary quote for Nashville and surrounding Middle Tennessee communities. Travel fees and the full appointment price are confirmed before booking.",
     path: "/pricing",
   },
   "/why-choose-us": {
     title: "Why Choose Original Mobile Notary of Nashville",
     description:
-      "Choose friendly, professional mobile notary service with clear communication, convenient scheduling, flexible payment options, and service throughout Nashville and Middle Tennessee.",
+      "Choose friendly, professional mobile notary service with clear communication, flexible scheduling, broad payment options, and service throughout Nashville and Middle Tennessee.",
     path: "/why-choose-us",
   },
   "/about": {
@@ -51,13 +52,13 @@ const metadataByPath: Record<string, PageMetadata> = {
   "/faq": {
     title: "Nashville Mobile Notary FAQ",
     description:
-      "Get answers about mobile notary appointments, identification, signing requirements, hospital and care-facility visits, payment, pricing, and service areas around Nashville.",
+      "Get answers about Nashville mobile notary hours, same-day appointments, identification, payment methods, discounts, travel pricing, and service locations.",
     path: "/faq",
   },
   "/contact": {
     title: "Book a Mobile Notary in Nashville",
     description:
-      "Request a mobile notary appointment in Nashville or a surrounding Middle Tennessee community. Share your document type, preferred time, and appointment location for a clear quote.",
+      "Request a mobile notary appointment in Nashville or a surrounding Middle Tennessee community. Share your document type, preferred time, and meeting location for a clear quote.",
     path: "/contact",
   },
 };
@@ -73,11 +74,19 @@ const localBusinessSchema = {
   email: "hello@originalnotary.com",
   priceRange: "$$",
   description:
-    "Professional mobile notary service throughout Nashville and surrounding Middle Tennessee communities.",
+    "Mobile notary service throughout Nashville and surrounding Middle Tennessee communities. Appointments are scheduled in advance; there is no public walk-in office.",
   founder: {
     "@type": "Person",
     name: "Brigitte",
   },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "08:00",
+      closes: "20:00",
+    },
+  ],
   areaServed: [
     "Nashville",
     "Goodlettsville",
@@ -90,6 +99,7 @@ const localBusinessSchema = {
     "Nolensville",
     "Spring Hill",
   ].map((name) => ({ "@type": "City", name })),
+  paymentAccepted: "Cash, credit card, debit card, Cash App, Venmo, Zelle, Apple Pay and other common digital payment methods",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Mobile Notary Services",
@@ -109,6 +119,19 @@ const localBusinessSchema = {
   },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 function upsertMeta(selector: string, attributes: Record<string, string>) {
   let element = document.head.querySelector<HTMLMetaElement>(selector);
   if (!element) {
@@ -126,6 +149,21 @@ function upsertLink(rel: string, href: string) {
     document.head.appendChild(element);
   }
   element.href = href;
+}
+
+function upsertSchema(key: string, data: object | null) {
+  let schema = document.head.querySelector<HTMLScriptElement>(`script[data-seo-schema="${key}"]`);
+  if (!data) {
+    schema?.remove();
+    return;
+  }
+  if (!schema) {
+    schema = document.createElement("script");
+    schema.type = "application/ld+json";
+    schema.dataset.seoSchema = key;
+    document.head.appendChild(schema);
+  }
+  schema.textContent = JSON.stringify(data);
 }
 
 export default function SEO() {
@@ -159,14 +197,8 @@ export default function SEO() {
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: SOCIAL_IMAGE });
     upsertLink("canonical", canonicalUrl);
 
-    let schema = document.head.querySelector<HTMLScriptElement>('script[data-seo-schema="local-business"]');
-    if (!schema) {
-      schema = document.createElement("script");
-      schema.type = "application/ld+json";
-      schema.dataset.seoSchema = "local-business";
-      document.head.appendChild(schema);
-    }
-    schema.textContent = JSON.stringify(localBusinessSchema);
+    upsertSchema("local-business", localBusinessSchema);
+    upsertSchema("faq", pathname === "/faq" ? faqSchema : null);
   }, [pathname]);
 
   return null;
